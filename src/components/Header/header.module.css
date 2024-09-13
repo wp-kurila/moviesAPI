@@ -1,0 +1,23 @@
+.header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 48px 0;
+	margin-bottom: 36px;
+
+	font-size: 26px;
+	font-weight: 500;
+
+	@media (max-width: 1152px) {
+		padding: 24px 0;
+		margin-bottom: 16px;
+	}
+}
+
+.nav {
+	color: black;
+
+	&:hover {
+		color: #5e5e5e;
+	}
+}

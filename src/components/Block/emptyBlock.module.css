@@ -1,0 +1,24 @@
+.block_wrapper {
+	flex: 0 0 calc(100% / 2 - 40px / 2);
+
+	@media (max-width: 1152px) {
+		flex: 0 0 100%;
+	}
+}
+
+.block {
+	height: 151px;
+	display: flex;
+}
+
+.image {
+	border-radius: 8px 8px 0 0;
+}
+
+.title {
+	margin-bottom: 8px;
+}
+
+.content {
+	padding: 24px;
+}

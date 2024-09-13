@@ -1,0 +1,71 @@
+.page {
+	display: flex;
+	gap: 80px;
+	padding-right: 50px;
+
+	@media (max-width: 1152px) {
+		flex-direction: column;
+		padding-right: 0;
+	}
+}
+
+.poster {
+	width: 400px;
+	aspect-ratio: 20 / 31;
+	background: center / cover no-repeat;
+	flex: 0 0 auto;
+
+	@media (max-width: 767px) {
+		width: calc(100% - 40px);
+	}
+}
+
+.title {
+	font-size: 48px;
+	font-weight: 700;
+	margin-bottom: 36px;
+	line-height: 48px;
+}
+
+.plot {
+	font-size: 20px;
+	font-weight: 300;
+	color: #696969;
+	margin-bottom: 16px;
+	opacity: 0.5;
+}
+
+.desc {
+	display: flex;
+	gap: 16px;
+	justify-content: space-between;
+	margin-bottom: 24px;
+
+	& > div {
+		font-size: 18px;
+	}
+}
+
+.favoriteBtn {
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	width: 30px;
+	aspect-ratio: 1;
+
+	& span,
+	& svg {
+		width: 100%;
+		height: 100%;
+	}
+}
+
+.star {
+	&:hover {
+		color: #fadb14;
+	}
+}
+
+.starFilled {
+	color: #fadb14;
+}

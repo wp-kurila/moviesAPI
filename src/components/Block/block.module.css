@@ -1,0 +1,46 @@
+.block_wrapper {
+	flex: 0 0 calc(100% / 2 - 40px / 2);
+
+	@media (max-width: 1152px) {
+		flex: 0 0 100%;
+	}
+
+	@media (max-width: 767px) {
+		flex: 0 0 100%;
+	}
+}
+
+.block {
+	display: flex;
+}
+
+.poster {
+	height: 150px;
+	width: 100px !important;
+	background: center / cover;
+}
+
+.text {
+	@media (max-width: 767px) {
+		width: calc(100vw - 164px);
+	}
+}
+
+.title {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	width: 370px;
+
+	@media (max-width: 767px) {
+		width: 100%;
+	}
+}
+
+.small {
+	width: 200px;
+
+	@media (max-width: 767px) {
+		width: auto;
+	}
+}

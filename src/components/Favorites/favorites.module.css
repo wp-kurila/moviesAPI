@@ -1,0 +1,16 @@
+.favorites {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+}
+
+.movie {
+	position: relative;
+}
+
+.closeBtn {
+	position: absolute;
+	right: 5px;
+	top: 5px;
+	cursor: pointer;
+}
