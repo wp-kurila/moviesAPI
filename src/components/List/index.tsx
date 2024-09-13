@@ -28,7 +28,7 @@ const List: FC<Props> = ({ data, isLoading }: Props): ReactElement | null => {
 			{isLoading &&
 				Array(10)
 					.fill(null)
-					.map((item, i) => {
+					.map((_, i) => {
 						return <EmptyBLock key={`empty_${i}`} />;
 					})}
 			{data?.Search?.map((item) => {
