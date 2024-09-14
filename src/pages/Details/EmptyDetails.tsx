@@ -1,6 +1,5 @@
 import { FC, ReactElement } from 'react';
-
-import Empty from '../../components/Empty';
+import Empty from '../../components/Emptyy';
 
 import styles from './emptyDetails.module.css';
 
