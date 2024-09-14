@@ -13,6 +13,19 @@
 		"predeploy": "npm run build",
 		"deploy": "gh-pages -d dist"
 	},
+	"lint-staged": {
+		"*.ts?(x)": [
+			"eslint --fix",
+			"prettier --write"
+		],
+		"*.js?(x)": [
+			"eslint --fix",
+			"prettier --write"
+		],
+		"*.css": [
+			"prettier --write"
+		]
+	},
 	"dependencies": {
 		"@ant-design/icons": "^5.4.0",
 		"@reduxjs/toolkit": "^2.2.7",
@@ -37,6 +50,7 @@
 		"eslint-plugin-react-refresh": "^0.4.11",
 		"gh-pages": "^6.1.1",
 		"globals": "^15.9.0",
+		"lint-staged": "^15.2.10",
 		"prettier": "^3.3.3",
 		"typescript": "^5.5.3",
 		"typescript-eslint": "^8.0.1",
