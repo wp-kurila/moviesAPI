@@ -27,7 +27,7 @@ const Empty: FC<Props> = ({ width, height, classname }: Props): ReactElement => 
 		return () => {
 			animation.cancel();
 		};
-	}, []);
+	}, [width]);
 
 	return (
 		<div

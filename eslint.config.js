@@ -64,8 +64,6 @@ export default [
 		},
 		rules: {
 			...reactHooks.configs.recommended.rules,
-			semi: 'off',
-			'@typescript-eslint/semi': ['warn'],
 		},
 	},
 ];
