@@ -1,7 +1,9 @@
 import { FC, ReactElement, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import IState, { IShortDesc } from '../../Model';
+import { IShortDesc } from '../../Model';
 import Block from '../Block';
+
+import type { RootState } from '../../store/store';
 
 import styles from './favorites.module.css';
 import { CloseCircleFilled } from '@ant-design/icons';
@@ -9,7 +11,7 @@ import { handleMovies } from '../../store/favoritesSlise';
 
 const Favorites: FC = (): ReactElement | null => {
 	const dispatch = useDispatch();
-	const movies = useSelector((s: IState) => s.favorites.movies);
+	const movies = useSelector((s: RootState) => s.favorites.movies);
 
 	const handleFavorites = useCallback(
 		(data: IShortDesc) => {

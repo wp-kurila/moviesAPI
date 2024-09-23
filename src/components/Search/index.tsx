@@ -1,13 +1,13 @@
 import { FC, ReactElement, useEffect, useState } from 'react';
-import { Input } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
 import { handleSearch } from '../../store/searchSlice';
+import Field from '../../ui-kit/Field';
 
-import IState from '../../Model';
+import type { AppDispatch, RootState } from '../../store/store';
 
-const Field: FC = (): ReactElement => {
-	const dispatch = useDispatch();
-	const search = useSelector((s: IState) => s.search);
+const Search: FC = (): ReactElement => {
+	const dispatch = useDispatch<AppDispatch>();
+	const search = useSelector((s: RootState) => s.search);
 	const [val, setVal] = useState(search);
 
 	useEffect(() => {
@@ -21,14 +21,14 @@ const Field: FC = (): ReactElement => {
 	}, [val, dispatch]);
 
 	return (
-		<Input
+		<Field
 			size="large"
 			placeholder="Any movie will be found"
-			onChange={(e) => setVal(e.target.value)}
-			value={val}
 			defaultValue={search}
+			value={val}
+			setVal={setVal}
 		/>
 	);
 };
 
-export default Field;
+export default Search;

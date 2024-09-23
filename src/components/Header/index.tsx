@@ -1,7 +1,7 @@
 import { FC, ReactElement } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { handleOpen } from '../../store/favoritesSlise';
+import { toggleOpen } from '../../store/favoritesSlise';
 
 import styles from './header.module.css';
 
@@ -9,7 +9,7 @@ const Header: FC = (): ReactElement => {
 	const dispatch = useDispatch();
 
 	const toOpenFavorites = () => {
-		dispatch(handleOpen());
+		dispatch(toggleOpen());
 	};
 
 	return (

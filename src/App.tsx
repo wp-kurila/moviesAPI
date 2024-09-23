@@ -1,24 +1,22 @@
 import { FC, ReactElement, useCallback } from 'react';
-import { createBrowserRouter, Outlet, RouterProvider } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { handleOpen } from './store/favoritesSlise';
-import Initial from './pages/Initial';
-import Details from './pages/Details';
+import { toggleOpen } from './store/favoritesSlise';
 import Header from './components/Header';
+import { Drawer } from 'antd';
 
-import type IState from './Model';
+import type { RootState } from './store/store';
 
 import styles from './app.module.css';
 import Favorites from './components/Favorites';
-import { Drawer } from 'antd';
 
-const Layout: FC = () => {
-	const isOpen = useSelector((s: IState) => s.favorites.isOpen);
+const App: FC = (): ReactElement => {
+	const isOpen = useSelector((s: RootState) => s.favorites.isOpen);
 
 	const dispatch = useDispatch();
 
 	const toClose = useCallback(() => {
-		dispatch(handleOpen());
+		dispatch(toggleOpen());
 	}, [dispatch]);
 
 	return (
@@ -30,27 +28,6 @@ const Layout: FC = () => {
 			</Drawer>
 		</div>
 	);
-};
-
-const router = createBrowserRouter([
-	{
-		path: '/',
-		element: <Layout />,
-		children: [
-			{
-				path: '/',
-				element: <Initial />,
-			},
-			{
-				path: '/details',
-				element: <Details />,
-			},
-		],
-	},
-]);
-
-const App: FC = (): ReactElement => {
-	return <RouterProvider router={router} />;
 };
 
 export default App;

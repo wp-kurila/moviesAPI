@@ -8,14 +8,14 @@ import { StarOutlined, StarFilled } from '@ant-design/icons';
 import { handleMovies } from '../../store/favoritesSlise';
 import EmptyDetails from './EmptyDetails';
 
+import type { RootState } from '../../store/store';
+
 import styles from './details.module.css';
-import type IState from '../../Model';
 
 const Details: FC = (): ReactElement => {
 	const dispatch = useDispatch();
 	const location = useLocation();
-	const movies = useSelector((s: IState) => s.favorites.movies);
-
+	const movies = useSelector((s: RootState) => s.favorites.movies);
 	const movieId = getId(location.search);
 
 	const { data, error, isLoading } = omdbAPI.useGetMovieByIdQuery(movieId);
@@ -29,6 +29,7 @@ const Details: FC = (): ReactElement => {
 	}, [movies, movieId]);
 
 	if (error) return <div>Something went wrong</div>;
+	if (data?.Error) return <div>Try another one</div>;
 
 	return (
 		<Card>

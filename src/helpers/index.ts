@@ -1,5 +1,11 @@
 export const getId = (query: string): string => {
 	if (!query) return '';
 
-	return query.split('=')[1];
+	const searchParams = new URLSearchParams(query);
+	const queryObject: Record<string, string> = {};
+	for (const [key, value] of searchParams.entries()) {
+		queryObject[key] = value;
+	}
+
+	return queryObject.id;
 };

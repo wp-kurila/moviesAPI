@@ -1,8 +1,3 @@
-export default interface IState {
-	search: string;
-	favorites: IFavorites;
-}
-
 export interface IShortDesc {
 	Title: string;
 	Year: string;

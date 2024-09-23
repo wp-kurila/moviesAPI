@@ -1,7 +1,10 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
+import { createBrowserRouter, Navigate, RouterProvider } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import App from './App';
+import Initial from './pages/Initial';
+import Details from './pages/Details';
 import store from './store/store';
 
 import './index.css';
@@ -13,10 +16,31 @@ if (!root) throw new Error('root not found');
 
 const container = createRoot(root);
 
+const router = createBrowserRouter([
+	{
+		path: '/',
+		element: <App />,
+		children: [
+			{
+				path: '/',
+				element: <Initial />,
+			},
+			{
+				path: '/details',
+				element: <Details />,
+			},
+		],
+	},
+	{
+		path: '*',
+		element: <Navigate to="/" />,
+	},
+]);
+
 container.render(
 	<StrictMode>
 		<Provider store={store}>
-			<App />
+			<RouterProvider router={router} />
 		</Provider>
 	</StrictMode>
 );

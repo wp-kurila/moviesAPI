@@ -1,15 +1,15 @@
 import { FC, ReactElement } from 'react';
-import Field from '../../components/Field';
+import Search from '../../components/Search';
 import List from '../../components/List';
 import { useSelector } from 'react-redux';
 import { omdbAPI } from '../../api';
 
-import IState from '../../Model';
+import { RootState } from '../../store/store';
 
 import styles from './initial.module.css';
 
 const Initial: FC = (): ReactElement => {
-	const search = useSelector((s: IState) => s.search);
+	const search = useSelector((s: RootState) => s.search);
 
 	const { data, error, isLoading } = omdbAPI.useSearchMoviesQuery(search, {
 		skip: search === '',
@@ -18,10 +18,10 @@ const Initial: FC = (): ReactElement => {
 	return (
 		<div className={styles.page}>
 			<form method="get">
-				<Field />
+				<Search />
 			</form>
 			{error && <div>Something went wrong</div>}
-			{(data || isLoading) && <List data={data} isLoading={isLoading} />}
+			{!error && search && <List data={data} isLoading={isLoading} />}
 		</div>
 	);
 };

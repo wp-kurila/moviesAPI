@@ -11,7 +11,7 @@ const favoritesSlice = createSlice({
 	name: 'favorites',
 	initialState,
 	reducers: {
-		handleOpen: (state) => {
+		toggleOpen: (state) => {
 			state.isOpen = !state.isOpen;
 		},
 		handleMovies: (state, action: PayloadAction<IShortDesc>) => {
@@ -26,5 +26,5 @@ const favoritesSlice = createSlice({
 	},
 });
 
-export const { handleOpen, handleMovies } = favoritesSlice.actions;
+export const { toggleOpen, handleMovies } = favoritesSlice.actions;
 export default favoritesSlice.reducer;
