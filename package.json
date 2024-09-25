@@ -11,18 +11,15 @@
 		"format": "prettier --write .",
 		"preview": "vite preview",
 		"predeploy": "npm run build",
-		"deploy": "gh-pages -d dist"
+		"deploy": "gh-pages -d dist",
+		"prepare": "husky"
 	},
 	"lint-staged": {
-		"*.ts?(x)": [
+		"src/**/*.{ts,tsx,js,jsx}": [
 			"eslint --fix",
 			"prettier --write"
 		],
-		"*.js?(x)": [
-			"eslint --fix",
-			"prettier --write"
-		],
-		"*.css": [
+		"src/**/*.{json,css,md}": [
 			"prettier --write"
 		]
 	},
@@ -50,6 +47,7 @@
 		"eslint-plugin-react-refresh": "^0.4.11",
 		"gh-pages": "^6.1.1",
 		"globals": "^15.9.0",
+		"husky": "^9.1.6",
 		"lint-staged": "^15.2.10",
 		"prettier": "^3.3.3",
 		"typescript": "^5.5.3",
